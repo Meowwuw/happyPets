@@ -30,25 +30,20 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileToggle.addEventListener('click', toggleMobileMenu);
     mobileOverlay.addEventListener('click', closeMobileMenu);
     
-    // Cerrar menú al hacer click en un enlace
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             closeMobileMenu();
-            // Pequeño delay para que se vea la animación
             setTimeout(() => {
-                // Aquí puedes agregar navegación suave si tienes anclas
             }, 300);
         });
     });
     
-    // Cerrar con Escape
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && navList.classList.contains('mobile-open')) {
             closeMobileMenu();
         }
     });
     
-    // Responsive handling
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             closeMobileMenu();

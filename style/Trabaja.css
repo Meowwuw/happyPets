@@ -1,5 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 
+body {
+    font-family: 'Karla', sans-serif;
+}
+
+.form-group input.valid,
+.form-group select.valid,
+.form-group textarea.valid {
+    border: 2px solid #28a745;
+    background-color: #f8fff9;
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border: 2px solid #dc3545;
+    background-color: #fff5f5;
+    animation: shake 0.3s ease-in-out;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.success-message {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.success-message h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+}
+
+.success-message p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.checkbox-container input[type="checkbox"].error + label {
+    color: #dc3545;
+}
+
+.char-counter {
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.char-counter.warning {
+    color: #ffc107;
+}
+
+.char-counter.error {
+    color: #dc3545;
+}
+
 .trabaja-section {
   background-color: #ffffff;
   padding: 60px 20px;
@@ -109,7 +180,7 @@
   padding: 12px;
   border: 2px solid #ddd;
   border-radius: 5px;
-  font-size: 16px; /* Importante para móviles */
+  font-size: 16px; 
   background-color: #fff;
   transition: border-color 0.3s ease;
   width: 100%;
@@ -249,8 +320,7 @@ input[type="file"] {
   color: #dc2626;
 }
 
-/* RESPONSIVE DESIGN CORREGIDO */
-
+/* RESPONSIVE DESIGN */
 /* Tablets */
 @media (max-width: 1024px) {
   .trabaja-contenido {

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 
-/* SECCIÓN NOSOTROS PRINCIPAL */
 .nosotros-section {
     font-family: 'Karla', sans-serif;
     padding: 80px 20px;
@@ -308,7 +307,7 @@
     border-color: #2596ff;
 }
 
-/* RESPONSIVIDAD COMPLETA */
+/* RESPONSIVIDAD */
 
 /* Tablets (1024px y menor) */
 @media (max-width: 1024px) {
@@ -373,7 +372,7 @@
     }
     
     .karen-container {
-        flex-direction: column-reverse; /* Imagen arriba, texto abajo */
+        flex-direction: column-reverse; 
     }
     
     .nosotros-titulo, .karen-titulo {

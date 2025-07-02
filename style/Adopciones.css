@@ -14,7 +14,7 @@
   text-align: left;
   color: white;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.3); /* opcional: capa oscura para contraste */
+  background-color: rgba(0, 0, 0, 0.3); 
   border-radius: 8px;
   max-width: 90%;
 }
