@@ -1,0 +1,405 @@
+.adopciones-banner {
+  width: 100%;
+  height: 450px; 
+  background-image: url('../img/adopciones.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adopciones-overlay {
+  text-align: left;
+  color: white;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3); /* opcional: capa oscura para contraste */
+  border-radius: 8px;
+  max-width: 90%;
+}
+
+.adopciones-overlay h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+.adopciones-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  border: 2px solid black;
+  transition: background-color 0.3s ease;
+}
+
+.adopciones-btn:hover {
+  background-color: #f2f2f2;
+}
+
+
+.adopta-section {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.adopta-titulo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #2961c6;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.adopta-subtitulo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #5a9ea0;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.adopta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.adopta-card {
+    width: 260px;
+    background-color: white;
+    border-radius: 8px;
+    padding-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.adopta-img-container {
+    position: relative;
+}
+
+.adopta-img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    height: auto;
+}
+
+.adoptado-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: #007bce;
+    color: white;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.adopta-nombre {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 12px 0 5px;
+    color: #222;
+}
+
+.adopta-card p {
+    font-size: 14px;
+    color: #444;
+    margin: 4px 0;
+}
+
+
+/* FOOTER */
+.footer-contacto {
+    background-color: #ffffff;
+    font-family: 'Karla', sans-serif;
+}
+
+.footer-header {
+    background: linear-gradient(135deg, #d9c7e3 0%, #e8d5f0 100%);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer-titulo {
+    font-size: 36px;
+    font-weight: 900;
+    color: #351c75;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.footer-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.locales-titulo {
+    font-size: 20px;
+    font-weight: 800;
+    color: #351c75;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.contacto-info p {
+    margin: 12px 0;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.ubicacion {
+    font-size: 18px;
+    font-weight: 800;
+    color: #351c75;
+}
+
+.direccion {
+    font-size: 16px;
+    color: #555;
+}
+
+.telefono {
+    font-size: 16px;
+    color: #555;
+    font-weight: 700;
+}
+
+.horario {
+    font-size: 15px;
+    color: #666;
+}
+
+.footer-centro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-logo a:hover {
+    transform: scale(1.05);
+}
+
+.footer-logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e0e0e0;
+}
+
+.footer-brand {
+    text-align: left;
+}
+
+.footer-title {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.footer-title .happy-text {
+    color: #a05c00;
+}
+
+.footer-title .pets-text {
+    color: #2596ff;
+}
+
+.footer-subtitle {
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.footer-redes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-social-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.footer-social-link:hover {
+    transform: scale(1.1);
+}
+
+.footer-social-link img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e0e0e0;
+    transition: border-color 0.3s ease;
+}
+
+.footer-social-link:hover img {
+    border-color: #2596ff;
+}
+
+/* RESPONSIVIDAD MEJORADA */
+
+/* Tablets */
+@media (max-width: 1024px) {
+
+    .footer-titulo {
+        font-size: 32px;
+    }
+
+    .footer-contenido {
+        gap: 40px;
+        padding: 50px 30px;
+    }
+}
+
+/* Mobile Grande */
+@media (max-width: 768px) {
+
+    /* Footer */
+    .footer-titulo {
+        font-size: 26px;
+        letter-spacing: 1px;
+    }
+
+    .footer-contenido {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .footer-info {
+        text-align: center;
+        order: 2;
+    }
+
+    .footer-centro {
+        order: 1;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-logo-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .footer-title {
+        font-size: 28px;
+    }
+
+    .locales-titulo {
+        font-size: 18px;
+    }
+}
+
+/* Mobile Pequeño */
+@media (max-width: 480px) {
+
+    /* Footer */
+    .footer-header {
+        padding: 20px 15px;
+    }
+
+    .footer-titulo {
+        font-size: 22px;
+        letter-spacing: 0.5px;
+    }
+
+    .footer-contenido {
+        padding: 30px 15px;
+        gap: 25px;
+    }
+
+    .footer-logo {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-logo-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .footer-title {
+        font-size: 24px;
+    }
+
+    .footer-subtitle {
+        font-size: 12px;
+    }
+
+    .locales-titulo {
+        font-size: 16px;
+    }
+
+    .contacto-info p {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+
+    .footer-redes {
+        gap: 15px;
+    }
+
+    .footer-social-link img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Mobile Extra Pequeño */
+@media (max-width: 360px) {
+    .footer-titulo {
+        font-size: 20px;
+    }
+
+    .footer-title {
+        font-size: 22px;
+    }
+}

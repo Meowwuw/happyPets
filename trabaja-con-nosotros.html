@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Pets - Clínica Veterinaria</title>
+    <link rel="stylesheet" href="style/Navbar.css" />
+    <link rel="stylesheet" href="style/Trabaja.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="top-bar">
+        <div class="logo-section">
+          <a href="index.html">
+            <img src="img/logo.jpg" alt="Happy Pets Logo" class="logo-img" />
+          </a>
+          <div class="brand-info">
+            <h1 class="brand-title">
+              <span class="happy-text">HAPPY</span>
+              <span class="pets-text">PETS</span>
+            </h1>
+            <p class="brand-subtitle">CLÍNICA - VETERINARIA</p>
+          </div>
+        </div>
+
+        <div class="slogan-section">
+          <p class="brand-slogan">"TUS MASCOTAS SON NUESTRA FAMILIA"</p>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <img src="icon/instagram.png" alt="Instagram" />
+          </a>
+          <a href="#" class="social-link">
+            <img src="icon/tiktok.png" alt="TikTok" />
+          </a>
+          <a href="#" class="social-link">
+            <img src="icon/youtube.jpg" alt="YouTube" />
+          </a>
+          <a href="#" class="social-link">
+            <img src="icon/facebook.jpg" alt="Facebook" />
+          </a>
+        </div>
+
+        <!-- MOVER EL BOTÓN HAMBURGUESA AQUÍ -->
+        <button class="mobile-menu-toggle" aria-label="Abrir menú">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <nav class="main-navbar">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="nosotros.html" class="nav-link">NOSOTROS</a>
+          </li>
+          <li class="nav-item">
+            <a href="servicios.html" class="nav-link">SERVICIOS</a>
+          </li>
+          <li class="nav-item">
+            <a href="productos.html" class="nav-link">PRODUCTOS</a>
+          </li>
+          <li class="nav-item">
+            <a href="trabaja-con-nosotros.html" class="nav-link"
+              >TRABAJA CON NOSOTROS</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="adopciones.html" class="nav-link">ADOPCIONES</a>
+          </li>
+          <li class="nav-item">
+            <a href="contactanos.html" class="nav-link">CONTACTO</a>
+          </li>
+        </ul>
+
+        <!-- Overlay para cerrar menú -->
+        <div class="mobile-overlay"></div>
+      </nav>
+    </header>
+
+    <section class="trabaja-section" id="trabaja">
+      <div class="container">
+        <h2 class="trabaja-titulo">TRABAJA CON NOSOTROS</h2>
+
+        <div class="trabaja-contenido">
+          <!-- Formulario -->
+          <div class="formulario-container">
+            <form
+              class="formulario-trabaja"
+              action="#"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <!-- Fila 1: Nombre y Apellidos -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nombre">Nombre:</label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Nombre"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="apellidos">Apellidos:</label>
+                  <input
+                    type="text"
+                    id="apellidos"
+                    name="apellidos"
+                    placeholder="Apellidos"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Fila 2: Email y Teléfono -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Correo Electrónico:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Correo electrónico"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono:</label>
+                  <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="Teléfono"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Fila 3: Nivel Académico y Área de Trabajo -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nivel-academico">Nivel Académico:</label>
+                  <select id="nivel-academico" name="nivel_academico" required>
+                    <option value="">Secundario</option>
+                    <option value="secundario">Secundario</option>
+                    <option value="universitario">Universitario</option>
+                    <option value="bachiller">Bachiller</option>
+                    <option value="titulado">Titulado</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="area-trabajo">Área de trabajo:</label>
+                  <select id="area-trabajo" name="area_trabajo" required>
+                    <option value="">Residente Veterinario</option>
+                    <option value="residente-veterinario">
+                      Residente Veterinario
+                    </option>
+                    <option value="veterinario">Veterinario</option>
+                    <option value="grooming">Grooming</option>
+                    <option value="recepcion">Recepción</option>
+                    <option value="administracion">Administración</option>
+                    <option value="contabilidad">Contabilidad</option>
+                    <option value="mantenimiento">Mantenimiento</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Carta de Presentación -->
+              <div class="form-group-full">
+                <label for="carta-presentacion">Carta de presentación:</label>
+                <textarea
+                  id="carta-presentacion"
+                  name="carta_presentacion"
+                  rows="6"
+                  placeholder="Escribe tu carta de presentación aquí..."
+                ></textarea>
+              </div>
+
+              <!-- Sede -->
+              <div class="form-group-half">
+                <label for="sede">Sede:</label>
+                <input
+                  type="text"
+                  id="sede"
+                  name="sede"
+                  value="Santa Anita"
+                  readonly
+                />
+              </div>
+
+              <!-- Curriculum -->
+              <div class="form-group-full">
+                <label for="curriculum">Adjunta tu currículum:</label>
+                <input
+                  type="file"
+                  id="curriculum"
+                  name="curriculum"
+                  accept=".pdf,.doc,.docx"
+                  required
+                />
+              </div>
+
+              <!-- Checkbox de Política -->
+              <div class="checkbox-container">
+                <input type="checkbox" id="politica" name="politica" required />
+                <label for="politica"
+                  >He leído y acepto la política de privacidad y datos
+                  personales</label
+                >
+              </div>
+
+              <!-- Botón Enviar -->
+              <button type="submit" class="btn-enviar">ENVIAR</button>
+            </form>
+          </div>
+
+          <!-- Imagen Lateral CON OVERLAY -->
+          <div class="imagen-container">
+            <img
+              src="img/equipo-trabajo.jpg"
+              alt="Equipo de trabajo"
+              class="trabajo-img"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-contacto">
+      <div class="footer-header">
+        <h2 class="footer-titulo">¡PONTE EN CONTACTO CON NOSOTROS!</h2>
+      </div>
+
+      <div class="footer-contenido">
+        <div class="footer-info">
+          <h3 class="locales-titulo">LOCALES Y CONTACTO</h3>
+          <div class="contacto-info">
+            <p class="ubicacion">SANTA ANITA</p>
+            <p class="direccion">JR. MAXIMO VELANDRO 482</p>
+            <p class="telefono">933193434 | 01 442 10210</p>
+            <p class="horario">Atención: Lunes a Domingo - 24</p>
+          </div>
+        </div>
+
+        <div class="footer-centro">
+          <div class="footer-logo">
+            <a href="index.html">
+              <img
+                src="img/logo.jpg"
+                alt="Happy Pets Logo"
+                class="footer-logo-img"
+              />
+            </a>
+            <div class="footer-brand">
+              <h3 class="footer-title">
+                <span class="happy-text">HAPPY</span>
+                <span class="pets-text">PETS</span>
+              </h3>
+              <p class="footer-subtitle">CLÍNICA - VETERINARIA</p>
+            </div>
+          </div>
+
+          <div class="footer-redes">
+            <a href="#" class="footer-social-link">
+              <img src="icon/instagram.png" alt="Instagram" />
+            </a>
+            <a href="#" class="footer-social-link">
+              <img src="icon/tiktok.png" alt="TikTok" />
+            </a>
+            <a href="#" class="footer-social-link">
+              <img src="icon/youtube.jpg" alt="YouTube" />
+            </a>
+            <a href="#" class="footer-social-link">
+              <img src="icon/facebook.jpg" alt="Facebook" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+  </body>
+</html>

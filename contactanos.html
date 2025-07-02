@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Pets - Clínica Veterinaria</title>
+    <link rel="stylesheet" href="style/Navbar.css" />
+    <link rel="stylesheet" href="style/Contactanos.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="top-bar">
+        <div class="logo-section">
+          <a href="index.html">
+            <img src="img/logo.jpg" alt="Happy Pets Logo" class="logo-img" />
+          </a>
+          <div class="brand-info">
+            <h1 class="brand-title">
+              <span class="happy-text">HAPPY</span>
+              <span class="pets-text">PETS</span>
+            </h1>
+            <p class="brand-subtitle">CLÍNICA - VETERINARIA</p>
+          </div>
+        </div>
+
+        <div class="slogan-section">
+          <p class="brand-slogan">"TUS MASCOTAS SON NUESTRA FAMILIA"</p>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <img src="icon/instagram.png" alt="Instagram" />
+          </a>
+          <a href="#" class="social-link">
+            <img src="icon/tiktok.png" alt="TikTok" />
+          </a>
+          <a href="#" class="social-link">
+            <img src="icon/youtube.jpg" alt="YouTube" />
+          </a>
+          <a href="#" class="social-link">
+            <img src="icon/facebook.jpg" alt="Facebook" />
+          </a>
+        </div>
+
+        <!-- MOVER EL BOTÓN HAMBURGUESA AQUÍ -->
+        <button class="mobile-menu-toggle" aria-label="Abrir menú">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <nav class="main-navbar">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="nosotros.html" class="nav-link">NOSOTROS</a>
+          </li>
+          <li class="nav-item">
+            <a href="servicios.html" class="nav-link">SERVICIOS</a>
+          </li>
+          <li class="nav-item">
+            <a href="productos.html" class="nav-link">PRODUCTOS</a>
+          </li>
+          <li class="nav-item">
+            <a href="trabaja-con-nosotros.html" class="nav-link"
+              >TRABAJA CON NOSOTROS</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="adopciones.html" class="nav-link">ADOPCIONES</a>
+          </li>
+          <li class="nav-item">
+            <a href="contactanos.html" class="nav-link">CONTACTO</a>
+          </li>
+        </ul>
+
+        <!-- Overlay para cerrar menú -->
+        <div class="mobile-overlay"></div>
+      </nav>
+    </header>
+
+    <section class="contacto-section" id="contacto">
+      <div class="container">
+        <h2 class="contacto-titulo">CONTACTO</h2>
+        <h3 class="contacto-subtitulo">¡ENVÍANOS UN MENSAJE!</h3>
+        <div class="contacto-contenido">
+          <form
+            class="formulario-contacto"
+            action="tu-backend-o-mailto"
+            method="post"
+          >
+            <label for="nombre">Nombre:</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Nombre"
+              required
+            />
+
+            <label for="telefono">Teléfono:</label>
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              placeholder="Teléfono"
+              required
+            />
+
+            <label for="correo">Correo Electrónico:</label>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              placeholder="Correo electrónico"
+              required
+            />
+
+            <label for="sede">Sede:</label>
+            <input
+              type="text"
+              id="sede"
+              name="sede"
+              placeholder="Santa Anita"
+              value="Santa Anita"
+              required
+            />
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              placeholder="Tu mensaje aquí..."
+              required
+            ></textarea>
+
+            <div class="politica">
+              <input type="checkbox" id="politica" required />
+              <label for="politica"
+                >He leído y acepto la política de privacidad y datos
+                personales</label
+              >
+            </div>
+
+            <button type="submit">ENVIAR</button>
+          </form>
+
+          <div class="imagen-contacto">
+            <img src="img/contact.jpg" alt="Niña con perro feliz" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-contacto">
+      <div class="footer-header">
+        <h2 class="footer-titulo">¡PONTE EN CONTACTO CON NOSOTROS!</h2>
+      </div>
+
+      <div class="footer-contenido">
+        <div class="footer-info">
+          <h3 class="locales-titulo">LOCALES Y CONTACTO</h3>
+          <div class="contacto-info">
+            <p class="ubicacion">SANTA ANITA</p>
+            <p class="direccion">JR. MAXIMO VELANDRO 482</p>
+            <p class="telefono">933193434 | 01 442 10210</p>
+            <p class="horario">Atención: Lunes a Domingo - 24</p>
+          </div>
+        </div>
+
+        <div class="footer-centro">
+          <div class="footer-logo">
+            <a href="index.html">
+              <img
+                src="img/logo.jpg"
+                alt="Happy Pets Logo"
+                class="footer-logo-img"
+              />
+            </a>
+            <div class="footer-brand">
+              <h3 class="footer-title">
+                <span class="happy-text">HAPPY</span>
+                <span class="pets-text">PETS</span>
+              </h3>
+              <p class="footer-subtitle">CLÍNICA - VETERINARIA</p>
+            </div>
+          </div>
+
+          <div class="footer-redes">
+            <a href="#" class="footer-social-link">
+              <img src="icon/instagram.png" alt="Instagram" />
+            </a>
+            <a href="#" class="footer-social-link">
+              <img src="icon/tiktok.png" alt="TikTok" />
+            </a>
+            <a href="#" class="footer-social-link">
+              <img src="icon/youtube.jpg" alt="YouTube" />
+            </a>
+            <a href="#" class="footer-social-link">
+              <img src="icon/facebook.jpg" alt="Facebook" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+  </body>
+</html>
