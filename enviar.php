@@ -1,5 +1,13 @@
 <?php
-include("config.php");
+$host = "sql312.infinityfree.com";
+$user = "if0_39496179";
+$pass = "1lk845CRkxT";
+$db   = "if0_39496179_magenta"; 
+
+$conexion = new mysqli($host, $user, $pass, $db);
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre   = $_POST["nombre"];
