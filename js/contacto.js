@@ -246,23 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showContactSuccess();
       }, 2000);
 
-      fetch(contactForm.action, {
-        method: "POST",
-        body: new FormData(contactForm),
-      })
-        .then((response) => {
-          if (response.ok) {
-            showContactSuccess();
-          } else {
-            showContactGeneralError();
-          }
-        })
-        .catch(() => {
-          showContactGeneralError();
-        })
-        .finally(() => {
-          hideContactLoading();
-        });
+      contactForm.submit();
     } else {
       const firstContactError = contactForm.querySelector(".contact-error");
       if (firstContactError) {

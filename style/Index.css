@@ -261,20 +261,20 @@ body {
         font-size: 38px;
         margin-bottom: 45px;
     }
-    
+
     .ofrecemos-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 30px;
     }
-    
+
     .ofrecemos-item {
         padding: 25px 20px;
     }
-    
+
     .footer-titulo {
         font-size: 32px;
     }
-    
+
     .footer-contenido {
         gap: 40px;
         padding: 50px 30px;
@@ -283,85 +283,86 @@ body {
 
 /* Mobile Grande */
 @media (max-width: 768px) {
+
     /* Publicidad */
     .publicidad-img {
         max-width: 100%;
         object-fit: cover;
     }
-    
+
     /* Ofrecemos */
     .ofrecemos-section {
         padding: 60px 15px;
     }
-    
+
     .ofrecemos-titulo {
         font-size: 32px;
         letter-spacing: 1px;
         margin-bottom: 40px;
     }
-    
+
     .ofrecemos-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
         padding: 0 5px;
     }
-    
+
     .ofrecemos-item {
         padding: 25px 20px;
     }
-    
+
     .ofrecemos-item img {
         width: 70px;
         height: 70px;
     }
-    
+
     .ofrecemos-item h3 {
         font-size: 18px;
     }
-    
+
     .ofrecemos-item p {
         font-size: 14px;
     }
-    
+
     /* Footer */
     .footer-titulo {
         font-size: 26px;
         letter-spacing: 1px;
     }
-    
+
     .footer-contenido {
         grid-template-columns: 1fr;
         gap: 35px;
         padding: 40px 20px;
         text-align: center;
     }
-    
+
     .footer-info {
         text-align: center;
         order: 2;
     }
-    
+
     .footer-centro {
         order: 1;
     }
-    
+
     .footer-logo {
         justify-content: center;
     }
-    
+
     .footer-brand {
         text-align: center;
     }
-    
+
     .footer-logo-img {
         width: 80px;
         height: 80px;
     }
-    
+
     .footer-title {
         font-size: 28px;
     }
-    
+
     .locales-titulo {
         font-size: 18px;
     }
@@ -369,89 +370,90 @@ body {
 
 /* Mobile Pequeño */
 @media (max-width: 480px) {
+
     /* Ofrecemos */
     .ofrecemos-section {
         padding: 50px 10px;
     }
-    
+
     .ofrecemos-titulo {
         font-size: 28px;
         letter-spacing: 0.5px;
         margin-bottom: 35px;
     }
-    
+
     .ofrecemos-grid {
         grid-template-columns: 1fr;
         gap: 20px;
         max-width: 350px;
     }
-    
+
     .ofrecemos-item {
         padding: 20px 15px;
         margin: 0 10px;
     }
-    
+
     .ofrecemos-item img {
         width: 65px;
         height: 65px;
     }
-    
+
     .ofrecemos-item h3 {
         font-size: 17px;
         margin-bottom: 12px;
     }
-    
+
     .ofrecemos-item p {
         font-size: 13px;
         line-height: 1.5;
     }
-    
+
     /* Footer */
     .footer-header {
         padding: 20px 15px;
     }
-    
+
     .footer-titulo {
         font-size: 22px;
         letter-spacing: 0.5px;
     }
-    
+
     .footer-contenido {
         padding: 30px 15px;
         gap: 25px;
     }
-    
+
     .footer-logo {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .footer-logo-img {
         width: 70px;
         height: 70px;
     }
-    
+
     .footer-title {
         font-size: 24px;
     }
-    
+
     .footer-subtitle {
         font-size: 12px;
     }
-    
+
     .locales-titulo {
         font-size: 16px;
     }
-    
+
     .contacto-info p {
         font-size: 14px;
         margin: 8px 0;
     }
-    
+
     .footer-redes {
         gap: 15px;
     }
-    
+
     .footer-social-link img {
         width: 45px;
         height: 45px;
@@ -463,16 +465,26 @@ body {
     .ofrecemos-titulo {
         font-size: 24px;
     }
-    
+
     .ofrecemos-grid {
         max-width: 300px;
     }
-    
+
     .footer-titulo {
         font-size: 20px;
     }
-    
+
     .footer-title {
         font-size: 22px;
     }
+}
+
+.footer-creditos {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: #555;
+    font-style: italic;
+    background-color: #e8d5f0;
 }

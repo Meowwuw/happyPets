@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 
+body {
+    font-family: 'Karla', sans-serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
 .nosotros-section {
     font-family: 'Karla', sans-serif;
     padding: 80px 20px;
@@ -217,17 +222,81 @@
     letter-spacing: 0.5px;
 }
 
-/* FOOTER SIMPLE */
-.footer {
+
+/* FOOTER */
+.footer-contacto {
     background-color: #ffffff;
-    padding: 60px 20px;
+    font-family: 'Karla', sans-serif;
+}
+
+.footer-header {
+    background: linear-gradient(135deg, #d9c7e3 0%, #e8d5f0 100%);
+    padding: 30px 20px;
     text-align: center;
-    border-top: 2px solid #f0f0f0;
+}
+
+.footer-titulo {
+    font-size: 36px;
+    font-weight: 900;
+    color: #351c75;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.2;
 }
 
 .footer-contenido {
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 60px 40px;
+    max-width: 1200px;
     margin: 0 auto;
+    align-items: center;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.locales-titulo {
+    font-size: 20px;
+    font-weight: 800;
+    color: #351c75;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.contacto-info p {
+    margin: 12px 0;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.ubicacion {
+    font-size: 18px;
+    font-weight: 800;
+    color: #351c75;
+}
+
+.direccion {
+    font-size: 16px;
+    color: #555;
+}
+
+.telefono {
+    font-size: 16px;
+    color: #555;
+    font-weight: 700;
+}
+
+.horario {
+    font-size: 15px;
+    color: #666;
+}
+
+.footer-centro {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -237,9 +306,17 @@
 .footer-logo {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
+}
+
+.footer-logo a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-logo a:hover {
+    transform: scale(1.05);
 }
 
 .footer-logo-img {
@@ -251,13 +328,13 @@
 }
 
 .footer-brand {
-    text-align: center;
+    text-align: left;
 }
 
 .footer-title {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 900;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     margin-bottom: 5px;
     line-height: 1;
 }
@@ -274,7 +351,7 @@
     font-size: 14px;
     color: #666;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     margin: 0;
 }
 
@@ -282,7 +359,6 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 .footer-social-link {
@@ -295,8 +371,8 @@
 }
 
 .footer-social-link img {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #e0e0e0;
@@ -307,321 +383,140 @@
     border-color: #2596ff;
 }
 
-/* RESPONSIVIDAD */
+/* RESPONSIVIDAD  */
 
-/* Tablets (1024px y menor) */
+/* Tablets */
 @media (max-width: 1024px) {
-    .nosotros-section, .karen-section {
-        padding: 70px 20px;
+
+    .footer-titulo {
+        font-size: 32px;
     }
-    
-    .nosotros-titulo, .karen-titulo {
-        font-size: 38px;
-        margin-bottom: 25px;
-    }
-    
-    .nosotros-container, .karen-container {
-        gap: 35px;
-    }
-    
-    .nosotros-texto p, .karen-texto p {
-        font-size: 15px;
-    }
-    
-    .equipo-titulo {
-        font-size: 38px;
-        margin-bottom: 45px;
-    }
-    
-    .equipo-contenedor {
-        gap: 30px;
-    }
-    
-    .miembro {
-        flex: 1 1 240px;
-        max-width: 260px;
-        height: 430px;
-    }
-    
-    .miembro img {
-        height: 300px;
-        padding: 12px;
+
+    .footer-contenido {
+        gap: 40px;
+        padding: 50px 30px;
     }
 }
 
-/* Mobile Grande (768px y menor) */
+/* Mobile Grande */
 @media (max-width: 768px) {
-    .nosotros-section, .karen-section {
-        padding: 60px 15px;
-    }
-    
-    .nosotros-container, .karen-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-    
-    .nosotros-texto, .karen-texto {
-        flex: 1 1 100%;
-        min-width: auto;
-    }
-    
-    .nosotros-imagen, .karen-imagen {
-        flex: 1 1 100%;
-        min-width: auto;
-    }
-    
-    .karen-container {
-        flex-direction: column-reverse; 
-    }
-    
-    .nosotros-titulo, .karen-titulo {
-        font-size: 32px;
-        margin-bottom: 20px;
-        letter-spacing: 1.5px;
-        text-align: center;
-    }
-    
-    .nosotros-texto p, .karen-texto p {
-        font-size: 14px;
-        text-align: left;
-        margin-bottom: 15px;
-    }
-    
-    .nosotros-imagen img, .karen-imagen img {
-        max-width: 400px;
-    }
-    
-    /* Equipo */
-    .equipo-section {
-        padding: 60px 15px;
-    }
-    
-    .equipo-titulo {
-        font-size: 32px;
-        margin-bottom: 40px;
-        letter-spacing: 1.5px;
-    }
-    
-    .equipo-contenedor {
-        gap: 25px;
-    }
-    
-    .miembro {
-        flex: 1 1 280px;
-        max-width: 320px;
-        height: 420px;
-    }
-    
-    .miembro img {
-        height: 290px;
-        padding: 10px;
-    }
-    
-    .info-miembro {
-        padding: 16px 10px;
-    }
-    
-    .info-miembro h3 {
-        font-size: 15px;
-        margin: 0 0 6px 0;
-    }
-    
-    .info-miembro p {
-        font-size: 13px;
-    }
-    
+
     /* Footer */
-    .footer {
-        padding: 40px 15px;
+    .footer-titulo {
+        font-size: 26px;
+        letter-spacing: 1px;
     }
-    
+
     .footer-contenido {
-        gap: 25px;
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 40px 20px;
+        text-align: center;
     }
-    
+
+    .footer-info {
+        text-align: center;
+        order: 2;
+    }
+
+    .footer-centro {
+        order: 1;
+    }
+
     .footer-logo {
-        gap: 15px;
+        justify-content: center;
     }
-    
+
+    .footer-brand {
+        text-align: center;
+    }
+
     .footer-logo-img {
         width: 80px;
         height: 80px;
     }
-    
+
     .footer-title {
-        font-size: 32px;
-        letter-spacing: 1.5px;
+        font-size: 28px;
     }
-    
+
+    .locales-titulo {
+        font-size: 18px;
+    }
+}
+
+/* Mobile Pequeño */
+@media (max-width: 480px) {
+
+    /* Footer */
+    .footer-header {
+        padding: 20px 15px;
+    }
+
+    .footer-titulo {
+        font-size: 22px;
+        letter-spacing: 0.5px;
+    }
+
+    .footer-contenido {
+        padding: 30px 15px;
+        gap: 25px;
+    }
+
+    .footer-logo {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-logo-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .footer-title {
+        font-size: 24px;
+    }
+
     .footer-subtitle {
-        font-size: 13px;
+        font-size: 12px;
     }
-    
+
+    .locales-titulo {
+        font-size: 16px;
+    }
+
+    .contacto-info p {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+
     .footer-redes {
         gap: 15px;
     }
-    
+
     .footer-social-link img {
         width: 45px;
         height: 45px;
     }
 }
 
-/* Mobile Pequeño (480px y menor) */
-@media (max-width: 480px) {
-    .nosotros-section, .karen-section {
-        padding: 50px 10px;
-    }
-    
-    .nosotros-container, .karen-container {
-        gap: 25px;
-    }
-    
-    .nosotros-titulo, .karen-titulo {
-        font-size: 28px;
-        margin-bottom: 20px;
-        letter-spacing: 1px;
-    }
-    
-    .nosotros-texto p, .karen-texto p {
-        font-size: 13px;
-        line-height: 1.6;
-        margin-bottom: 12px;
-    }
-    
-    .nosotros-imagen img, .karen-imagen img {
-        max-width: 300px;
-        border-radius: 8px;
-    }
-    
-    /* Equipo */
-    .equipo-section {
-        padding: 50px 10px;
-    }
-    
-    .equipo-titulo {
-        font-size: 28px;
-        margin-bottom: 35px;
-        letter-spacing: 1px;
-    }
-    
-    .equipo-contenedor {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    
-    .miembro {
-        flex: none;
-        width: 100%;
-        max-width: 280px;
-        height: 400px;
-    }
-    
-    .miembro img {
-        height: 270px;
-        padding: 8px;
-    }
-    
-    .info-miembro {
-        padding: 14px 8px;
-    }
-    
-    .info-miembro h3 {
-        font-size: 14px;
-        margin: 0 0 5px 0;
-    }
-    
-    .info-miembro p {
-        font-size: 12px;
-    }
-    
-    /* Footer */
-    .footer {
-        padding: 35px 10px;
-    }
-    
-    .footer-logo {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .footer-logo-img {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .footer-title {
-        font-size: 28px;
-        letter-spacing: 1px;
-    }
-    
-    .footer-subtitle {
-        font-size: 12px;
-    }
-    
-    .footer-redes {
-        gap: 12px;
-    }
-    
-    .footer-social-link img {
-        width: 42px;
-        height: 42px;
-    }
-}
-
-/* Mobile Extra Pequeño (360px y menor) */
+/* Mobile Extra Pequeño */
 @media (max-width: 360px) {
-    .nosotros-titulo, .karen-titulo {
-        font-size: 24px;
+    .footer-titulo {
+        font-size: 20px;
     }
-    
-    .nosotros-texto p, .karen-texto p {
-        font-size: 12px;
-    }
-    
-    .equipo-titulo {
-        font-size: 24px;
-    }
-    
+
     .footer-title {
-        font-size: 24px;
+        font-size: 22px;
     }
 }
 
-/* ANIMACIONES */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.miembro {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.miembro:nth-child(1) { animation-delay: 0.1s; }
-.miembro:nth-child(2) { animation-delay: 0.2s; }
-.miembro:nth-child(3) { animation-delay: 0.3s; }
-.miembro:nth-child(4) { animation-delay: 0.4s; }
-
-.footer-contenido {
-    animation: fadeIn 0.6s ease forwards;
+.footer-creditos {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: #555;
+    font-style: italic;
+    background-color: #e8d5f0;
 }
