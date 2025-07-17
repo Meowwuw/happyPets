@@ -1,7 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $host = "sql312.infinityfree.com";
 $user = "if0_39496179";
-$pass = "1lk845CRkxT";
+$pass = "1Lk845CRKxT";
 $db   = "if0_39496179_magenta"; 
 
 $conexion = new mysqli($host, $user, $pass, $db);
