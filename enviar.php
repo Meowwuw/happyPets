@@ -1,52 +1,44 @@
 <?php
-// Configuración de headers para CORS y JSON
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-// Verificar que la petición sea POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Método no permitido']);
     exit;
 }
 
-// Configuración de la base de datos AWS RDS
 $host = 'magenta.c7eoowk848fz.us-east-2.rds.amazonaws.com';
 $usuario = 'admin';
 $clave = '5wpMSZQcOvKuR81S734D';
 $nombre_base = 'MAGENTA';
 
 try {
-    // Crear conexión PDO con configuración para AWS RDS
     $dsn = "mysql:host=$host;dbname=$nombre_base;charset=utf8mb4;port=3306";
     $opciones = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false,
-        PDO::MYSQL_ATTR_SSL_CA => false, // Para AWS RDS
         PDO::ATTR_TIMEOUT => 30
     ];
     
     $pdo = new PDO($dsn, $usuario, $clave, $opciones);
     
 } catch (PDOException $e) {
-    error_log("Error de conexión AWS RDS: " . $e->getMessage());
     http_response_code(500);
     echo json_encode([
         'success' => false, 
         'message' => 'Error de conexión a la base de datos',
-        'debug' => 'Revisa la configuración de AWS RDS'
+        'debug' => 'Error Base de datos: ' . $e->getMessage()
     ]);
     exit;
 }
 
-// Función para validar y limpiar datos
 function validarCampo($campo, $tipo, $obligatorio = true) {
     $valor = '';
     
-    // Obtener valor según el tipo de envío
     if (isset($_POST[$campo])) {
         $valor = trim($_POST[$campo]);
     }
@@ -94,28 +86,21 @@ function validarCampo($campo, $tipo, $obligatorio = true) {
 }
 
 try {
-    // Log para debugging
-    error_log("Procesando contacto: " . print_r($_POST, true));
-    
-    // Validar todos los campos
     $nombre = validarCampo('nombre', 'nombre');
     $telefono = validarCampo('telefono', 'telefono');
     $correo = validarCampo('correo', 'email');
     $sede = validarCampo('sede', 'sede');
     $mensaje = validarCampo('mensaje', 'mensaje');
     
-    // Verificar que se aceptó la política de privacidad
     if (!isset($_POST['politica']) || ($_POST['politica'] !== 'on' && $_POST['politica'] !== '1')) {
         throw new Exception('Debes aceptar la política de privacidad');
     }
     
-    // Preparar la consulta SQL para tu tabla
     $sql = "INSERT INTO contactos (nombre, telefono, correo, sede, mensaje) 
             VALUES (:nombre, :telefono, :correo, :sede, :mensaje)";
     
     $stmt = $pdo->prepare($sql);
     
-    // Ejecutar la consulta con los parámetros
     $resultado = $stmt->execute([
         ':nombre' => $nombre,
         ':telefono' => $telefono,
@@ -127,15 +112,17 @@ try {
     if ($resultado) {
         $contacto_id = $pdo->lastInsertId();
         
-        // Log de éxito
-        error_log("Contacto guardado exitosamente con ID: $contacto_id");
-        
-        // Respuesta exitosa
         echo json_encode([
             'success' => true,
             'message' => '¡Mensaje enviado correctamente! Gracias por contactarnos.',
             'id' => $contacto_id,
-            'debug' => 'Guardado en AWS RDS correctamente'
+            'datos' => [
+                'nombre' => $nombre,
+                'correo' => $correo,
+                'sede' => $sede,
+                'fecha' => date('Y-m-d H:i:s')
+            ],
+            'debug' => 'Guardado en Base de datos exitosamente'
         ]);
         
     } else {
@@ -143,10 +130,6 @@ try {
     }
     
 } catch (Exception $e) {
-    // Log del error
-    error_log("Error en contacto: " . $e->getMessage());
-    
-    // Respuesta de error
     http_response_code(400);
     echo json_encode([
         'success' => false,
@@ -155,9 +138,6 @@ try {
     ]);
     
 } catch (PDOException $e) {
-    // Error específico de base de datos
-    error_log("Error PDO: " . $e->getMessage());
-    
     http_response_code(500);
     echo json_encode([
         'success' => false,
@@ -166,6 +146,5 @@ try {
     ]);
 }
 
-// Cerrar conexión
 $pdo = null;
 ?>

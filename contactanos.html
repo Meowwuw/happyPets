@@ -84,7 +84,12 @@
         <h2 class="contacto-titulo">CONTACTO</h2>
         <h3 class="contacto-subtitulo">¡ENVÍANOS UN MENSAJE!</h3>
         <div class="contacto-contenido">
-          <form class="formulario-contacto" id="formulario-contacto">
+          <form
+            class="formulario-contacto"
+            id="formulario-contacto"
+            method="POST"
+            action="enviar.php"
+          >
             <label for="nombre">Nombre:</label>
             <input
               type="text"
@@ -132,7 +137,7 @@
             ></textarea>
 
             <div class="politica">
-              <input type="checkbox" id="politica" required />
+              <input type="checkbox" id="politica" name="politica" required />
               <label for="politica"
                 >He leído y acepto la política de privacidad y datos
                 personales</label

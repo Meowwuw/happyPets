@@ -226,12 +226,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // **Validación al enviar formulario**
+  // ========================================
+  // 🚀 NUEVA SECCIÓN: ENVÍO REAL AL PHP
+  // ========================================
   contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+    e.preventDefault(); // Prevenir envío normal del formulario
 
     let allContactValid = true;
 
+    // Validar todos los campos primero
     contactInputs.forEach((input) => {
       if (!validateContactField(input)) {
         allContactValid = false;
@@ -241,13 +244,86 @@ document.addEventListener("DOMContentLoaded", function () {
     if (allContactValid) {
       showContactLoading();
 
-      setTimeout(() => {
-        hideContactLoading();
-        showContactSuccess();
-      }, 2000);
+      // Crear FormData para enviar al PHP
+      const formData = new FormData();
+      formData.append('nombre', contactForm.nombre.value.trim());
+      formData.append('telefono', contactForm.telefono.value.trim());
+      formData.append('correo', contactForm.correo.value.trim());
+      formData.append('sede', contactForm.sede.value.trim());
+      formData.append('mensaje', contactForm.mensaje.value.trim());
+      formData.append('politica', contactForm.politica.checked ? 'on' : 'off');
 
-      contactForm.submit();
+      // Log para debugging
+      console.log('📤 Enviando datos a enviar.php:', {
+        nombre: contactForm.nombre.value.trim(),
+        telefono: contactForm.telefono.value.trim(),
+        correo: contactForm.correo.value.trim(),
+        sede: contactForm.sede.value.trim(),
+        mensaje: contactForm.mensaje.value.trim(),
+        politica: contactForm.politica.checked
+      });
+
+      // Enviar datos al archivo PHP usando fetch
+      fetch('enviar.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        console.log('📡 Response status:', response.status);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text(); // Primero como texto para debug
+      })
+      .then(text => {
+        console.log('📄 Raw response:', text);
+        
+        try {
+          const data = JSON.parse(text);
+          hideContactLoading();
+          
+          if (data.success) {
+            console.log('✅ Éxito:', data.message);
+            if (data.id) {
+              console.log('🆔 ID en Base de datos:', data.id);
+            }
+            showContactSuccess(data.message);
+            
+            // Limpiar formulario después del éxito
+            contactForm.reset();
+            contactInputs.forEach((input) => {
+              input.classList.remove("contact-valid", "contact-error");
+            });
+            
+            // Limpiar mensajes de error previos
+            document.querySelectorAll('.contact-error-message').forEach(el => el.remove());
+            document.querySelectorAll('.contact-warning-message').forEach(el => el.remove());
+            
+            // Reiniciar contador de caracteres
+            if (counterDiv) {
+              counterDiv.textContent = '0/500 caracteres';
+              counterDiv.classList.remove('contact-warning', 'contact-error');
+            }
+            
+          } else {
+            console.error('❌ Error del servidor:', data.message);
+            showContactError(data.message || 'Error al enviar el mensaje');
+          }
+        } catch (parseError) {
+          console.error('🔥 Error parsing JSON:', parseError);
+          console.error('📄 Response text:', text);
+          hideContactLoading();
+          showContactError('Error en la respuesta del servidor. Revisa la consola para más detalles.');
+        }
+      })
+      .catch(error => {
+        hideContactLoading();
+        console.error('🌐 Error de red:', error);
+        showContactError('Error de conexión. Verifica que XAMPP esté ejecutándose y enviar.php esté funcionando.');
+      });
     } else {
+      // Si hay errores de validación
       const firstContactError = contactForm.querySelector(".contact-error");
       if (firstContactError) {
         firstContactError.scrollIntoView({
@@ -256,7 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         firstContactError.focus();
       }
-
       showContactGeneralError();
     }
   });
@@ -265,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function showContactLoading() {
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span class="loading-spinner"></span> ENVIANDO...';
+    submitBtn.innerHTML = '<span class="loading-spinner"></span> ENVIANDO A Base de datos...';
     submitBtn.classList.add("loading");
   }
 
@@ -276,14 +351,53 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.classList.remove("loading");
   }
 
-  function showContactSuccess() {
+  // Función mejorada para mostrar errores del servidor
+  function showContactError(message) {
+    // Remover errores previos
+    const existingError = document.querySelector('.contact-server-error');
+    if (existingError) {
+      existingError.remove();
+    }
+
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "contact-server-error";
+    errorDiv.innerHTML = `
+        <div class="error-icon">❌</div>
+        <h3>Error al enviar mensaje</h3>
+        <p>${message}</p>
+        <p><small>Si el problema persiste, contacta directamente al <strong>933193434</strong></small></p>
+        <p><small>🔧 Verificando conexión con Base de datos...</small></p>
+    `;
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.parentElement.insertBefore(errorDiv, submitBtn);
+
+    // Scroll hacia el error
+    errorDiv.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    setTimeout(() => {
+      if (errorDiv.parentElement) {
+        errorDiv.remove();
+      }
+    }, 10000);
+  }
+
+  // Función mejorada para mostrar éxito
+  function showContactSuccess(customMessage = null) {
+    // Remover mensajes previos
+    const existingMessages = document.querySelectorAll('.contact-success-message, .contact-server-error');
+    existingMessages.forEach(el => el.remove());
+
     const successDiv = document.createElement("div");
     successDiv.className = "contact-success-message";
     successDiv.innerHTML = `
-            <div class="success-icon">✓</div>
-            <h3>¡Mensaje enviado correctamente!</h3>
-            <p>Gracias por contactarnos. Te responderemos a la brevedad.</p>
-        `;
+        <div class="success-icon">✅</div>
+        <h3>¡Mensaje enviado correctamente!</h3>
+        <p>${customMessage || 'Gracias por contactarnos. Te responderemos a la brevedad.'}</p>
+        <p><strong>Clínica Happy Pets - Santa Anita</strong></p>
+        <p><small>📞 933193434 | 📍 Jr. Máximo Velandro 482</small></p>
+        <p><small>💾 Guardado en Base de Datos correctamente</small></p>
+    `;
 
     contactForm.style.display = "none";
     contactForm.parentNode.insertBefore(successDiv, contactForm);
@@ -291,14 +405,9 @@ document.addEventListener("DOMContentLoaded", function () {
     successDiv.scrollIntoView({ behavior: "smooth" });
 
     setTimeout(() => {
-      contactForm.reset();
       contactForm.style.display = "block";
       successDiv.remove();
-
-      contactInputs.forEach((input) => {
-        input.classList.remove("contact-valid", "contact-error");
-      });
-    }, 5000);
+    }, 8000);
   }
 
   function showContactGeneralError() {
